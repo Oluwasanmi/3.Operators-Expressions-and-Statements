@@ -1,0 +1,18 @@
+using System;
+
+class Weight
+{
+    static void Main()
+    {
+        Console.Write("Enter the weight of a" + " ");
+        Console.Write("person on the ground:");
+        double numWeightGround = double.Parse(Console.ReadLine());
+        Console.WriteLine("\n");
+        double numWeightMoon = 0.17*numWeightGround;
+
+        Console.Write("Weight of a" + " ");
+        Console.Write("person on the moon is:{0}", numWeightMoon);
+        Console.WriteLine("\n");
+    }
+}
+
