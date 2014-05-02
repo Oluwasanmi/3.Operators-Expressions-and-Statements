@@ -1,0 +1,20 @@
+using System;
+
+
+class IntegerDivision
+{
+    static void Main()
+    {
+        Console.Write("Enter an integer number:");
+        int numInt = int.Parse(Console.ReadLine());
+        Console.WriteLine("\n");
+        Boolean divideBool= ((numInt%7==0)&&(numInt%5==0)&&(numInt!=0));
+
+        if (divideBool) 
+            Console.WriteLine("The number is divisible by 7 and 5:");
+        else
+            Console.WriteLine("The number isn't divisible by 7 and 5:");
+            Console.WriteLine("\n");
+    }
+}
+
