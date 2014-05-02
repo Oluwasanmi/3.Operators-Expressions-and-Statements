@@ -1,0 +1,65 @@
+using System;
+
+class Advanced
+{
+    static void Main()
+    {
+        long number = long.Parse(Console.ReadLine());
+        Console.WriteLine(Convert.ToString(number, 2).PadLeft(32, '0'));
+
+        int P = int.Parse(Console.ReadLine());
+        int Q = int.Parse(Console.ReadLine());
+        int K = int.Parse(Console.ReadLine());
+
+        if (Math.Max(P, Q) + K > 32)
+        {
+            Console.WriteLine("Out of range");
+            return;
+        }
+        else if (Math.Min(P, Q) + K > Math.Max(P, Q))
+        {
+            Console.WriteLine("Overlapping");
+            return;
+        }
+        else
+        {
+
+        }
+        for (int I =P,J=Q; I <=P+K-1||J<=Q+K-1; I++,J++)
+        {
+            long mask = 1 << I;
+            long bitI = (number & (long)mask) >> I;
+
+            mask = 1 << J;
+            long bitJ = (number & (long)mask) >> J;
+
+            if (bitI == 0)
+            {
+                //put 0 in Jth position
+                mask = ~(1 << J);
+                number = number & (long)mask;
+            }
+            else if (bitI == 1)
+            {
+                //put 1 in Jth position
+                mask = 1 << J;
+                number = number | (long)mask;
+            }
+            if (bitJ == 0)
+            {
+                //put 0 in Ith position
+                mask = ~(1 << I);
+                number = number & (long)mask;
+            }
+            else if (bitJ == 1)
+            {
+                //put 1 in Ith position
+                mask = 1 << I;
+                number = number | (long)mask;
+            }
+        }
+        Console.WriteLine(Convert.ToString(number, 2).PadLeft(32, '0'));
+        Console.WriteLine(number);
+    }
+}
+
