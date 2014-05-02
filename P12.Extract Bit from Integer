@@ -1,0 +1,18 @@
+using System;
+
+class ExtractBit
+{
+    static void Main()
+    {
+        Console.Write("Enter the integer number:");
+        int nInt = int.Parse(Console.ReadLine());
+        Console.WriteLine("\n");
+        Console.Write("Enter the number of position:");
+        int pInt = int.Parse(Console.ReadLine());
+        Console.WriteLine("\n");
+        int nRightP = nInt >> pInt;
+        int bit = nRightP & 1;
+        Console.WriteLine(bit);    
+    }
+}
+
