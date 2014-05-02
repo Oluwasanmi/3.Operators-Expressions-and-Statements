@@ -1,0 +1,25 @@
+using System;
+
+class PerimeterOrArea 
+{
+    static void Main()
+    {
+        Console.Write("Enter width of rectangle:");
+        float numWeight = float.Parse(Console.ReadLine());
+        Console.WriteLine("\n");
+        Console.Write("Enter height of rectangle:");
+        int numHeight = int.Parse(Console.ReadLine());
+        Console.WriteLine("\n");
+
+        double numParameter, numArea;
+
+        numParameter = 2*(numWeight+numHeight);
+        numArea = numWeight * numHeight;
+
+        Console.WriteLine("Perimeter of rectangle is:{0}", numParameter);
+        Console.WriteLine("\n");
+        Console.WriteLine("Area of rectangle is:{0}", numArea);
+        Console.WriteLine("\n");
+    }
+}
+
