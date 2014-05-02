@@ -1,0 +1,29 @@
+using System;
+
+class CheckBit
+{
+    static void Main()
+    {
+        Console.Write("Enter the integer number:");
+        int nInt = int.Parse(Console.ReadLine());
+        Console.WriteLine("\n");
+        Console.Write("Enter number of the check position:");
+        int pInt =int.Parse(Console.ReadLine());
+        int nRightP = nInt >> pInt;
+        int bit = nRightP & 1;
+        Boolean equalBool = (bit== 1);
+        if (equalBool)
+        {
+            Console.Write("\nChecking bit position" + " ");
+            Console.Write("p=={0} is:{1}", pInt, bit);
+            Console.WriteLine("\n");
+        }
+        else
+        {
+            Console.Write("\nChecking bit position" + " ");
+            Console.Write("p=={0} is:{1}", pInt, bit);
+            Console.WriteLine("\n");
+        }
+    }
+}
+
