@@ -1,0 +1,33 @@
+using System;
+
+class Circle
+{
+    static void Main()
+    {
+        Console.Write("Enter the number for the coordinate: x=");
+        float numFloatX = float.Parse(Console.ReadLine());
+        Console.WriteLine("\n");
+        Console.Write("Enter the number for the coordinate: y=");
+        float numFloatY=float.Parse(Console.ReadLine());
+        Console.WriteLine("\n");
+
+        Boolean boolEqual=((Math.Sqrt((numFloatX*numFloatX)
+            +(numFloatY*numFloatY)))<=2);
+
+        if (boolEqual)
+        {
+            Console.Write("Point with coordinates" + " ");
+            Console.Write("({0},{1})" + " ", numFloatX, numFloatY);
+            Console.Write("is inside the circle K({0,0},2).");
+            Console.WriteLine("\n");
+        }
+        else
+        {
+            Console.Write("Point with coordinates" + " ");
+            Console.Write("({0},{1})" + " ", numFloatX, numFloatY);
+            Console.Write("is outside the circle K({0,0},2).");
+            Console.WriteLine("\n");
+        }
+    }
+}
+
