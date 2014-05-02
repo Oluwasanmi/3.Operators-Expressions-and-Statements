@@ -1,0 +1,23 @@
+using System;
+
+class AreaFigure
+{
+    static void Main()
+    {
+        Console.Write("Enter the side of trapezoid:");
+        float numFloatA = float.Parse(Console.ReadLine());
+        Console.WriteLine("\n");
+        Console.Write("Enter the side of trapezoid:");
+        float numFloatB=float.Parse(Console.ReadLine());
+        Console.WriteLine("\n");
+        Console.Write("Enter the height of trapezoid:");
+        float numFloatH=float.Parse(Console.ReadLine());
+        Console.WriteLine("\n");
+
+        float numDecimalArea = ((numFloatA + numFloatB)*numFloatH)/2;
+
+        Console.WriteLine("Area of the trapezoid is:{0}",numDecimalArea);
+        Console.WriteLine("\n");
+    }
+}
+
