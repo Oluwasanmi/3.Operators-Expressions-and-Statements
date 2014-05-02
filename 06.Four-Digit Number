@@ -1,0 +1,48 @@
+using System;
+
+class RearrangeNumber
+{
+    static void Main()
+    {
+        Console.Write("Enter a number with four digits:");
+        short numShort = short.Parse(Console.ReadLine());
+        Console.WriteLine("\n");
+        Boolean boolGreater = (numShort>=1000);
+
+        if (boolGreater)
+        {
+            int intThousandths = numShort/10;
+            int intFourthDigit = numShort%10;
+            int intHundreds = intThousandths/10;
+            int intThirdDigit = intThousandths%10;
+            int intTens = intHundreds/10;
+            int intSecondDigit = intHundreds%10;
+            int intUnits = intTens/10;
+            int intFirstDigit = intTens%10;
+            int intNumSum = intFirstDigit+intSecondDigit+intThirdDigit
+                +intFourthDigit;
+
+            Console.Write("Calculates the sum of the digits:" + " "); 
+            Console.Write("{0}",(short)intNumSum);
+            Console.WriteLine("\n");
+            Console.Write("The numbers in reversed order:");
+            Console.Write("{0}{1}",intFourthDigit,intThirdDigit);
+            Console.Write("{0}{1}",intSecondDigit,intFirstDigit);
+            Console.WriteLine("\n");
+            Console.Write("Put the last digit in the first position:");
+            Console.Write("{0}{1}",intFourthDigit,intFirstDigit);
+            Console.Write("{0}{1}",intSecondDigit,intThirdDigit);
+            Console.WriteLine("\n");
+            Console.Write("Exchanges the second and the third"+" ");
+            Console.Write("digits:{0}{1}",intFirstDigit,intThirdDigit);
+            Console.WriteLine("{0}{1}",intSecondDigit,intFourthDigit);
+            Console.WriteLine("\n");
+        }
+        else
+        {
+            Console.Write("Number {0} is not" + " ", (short)numShort);
+            Console.Write("is within the range indicated.");
+        }
+            Console.WriteLine("\n");
+    }
+}
