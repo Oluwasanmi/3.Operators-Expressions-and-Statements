@@ -1,0 +1,44 @@
+using System;
+
+    class CheskTheThirdDigit
+    {
+        static void Main()
+        {
+            Console.Write("Enter integer number (greeter than 700):");
+            int numInt = int.Parse(Console.ReadLine());
+            Console.WriteLine("\n");
+            Boolean boolGreater=(numInt<700);
+            Boolean boolEqual;
+
+            if (boolGreater)
+            {
+                Console.Write("Number {0} is outside" + " ",numInt);
+                Console.Write("the range inspected:");
+                Console.WriteLine("\n");
+            }
+            else
+            {
+                int intHundred = (numInt/10);
+                int intTens = (intHundred/10);
+                int firstDigit = intTens % 10;
+                boolEqual=(firstDigit==7);
+
+                if (boolEqual)
+                {
+                    Console.Write("The third digit of the" + " ");
+                    Console.Write("number {0}"+" ", numInt);
+                    Console.Write("(right to left)is 7.");
+
+                }
+                else
+                {
+                    Console.Write("The third digit of the" + " ");
+                    Console.Write("number {0}(right to"+" ", numInt);
+                    Console.Write("left)is {0}"+" ", (int)firstDigit);
+                    Console.WriteLine("different of 7.");
+                }
+            }
+            Console.WriteLine("\n");
+        }
+    }
+
