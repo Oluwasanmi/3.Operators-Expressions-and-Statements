@@ -1,0 +1,47 @@
+using System;
+
+class Prime
+{
+    static void Main()
+    {
+        Console.Write("Enter a positive integer numbers(from 1 to 100):");
+        int numInt=int.Parse(Console.ReadLine());
+        Console.WriteLine("\n");
+
+        if (numInt < 0)
+        {
+            Console.WriteLine("Invalid range!");
+            Console.WriteLine("\n");
+            return;
+        }
+        Boolean greaterNum=(numInt>1);
+
+        if (greaterNum)
+        {
+                int intCountDivide = numInt-1;
+                Boolean checkNum = ((numInt % intCountDivide) != 0);
+
+              while (checkNum)
+              { //While loop checks whether the entered 
+               //number is divisible without remainder
+              //to other number except 1.
+                  intCountDivide=intCountDivide-1;
+                  checkNum=((numInt%intCountDivide)!=0);
+                  //It is imperative to check inside the 
+                  //cycle of not to hangup program.
+              }
+              Boolean onlyNumDivide = ((intCountDivide==1)&&(numInt%numInt==0));
+
+              if (onlyNumDivide)
+              {
+                 Console.WriteLine("The number {0} is prime:", numInt);
+                 Console.WriteLine("\n");
+              }
+              else
+             Console.WriteLine("The number {0} isn't prime:",numInt);
+        }
+        else
+            Console.WriteLine("The number {0} isn't prime:",numInt);
+            Console.WriteLine("\n");
+    }
+}
