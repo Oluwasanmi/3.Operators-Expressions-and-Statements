@@ -1,0 +1,23 @@
+using System;
+
+class CheckingTheNumbers
+{
+    static void Main()
+    {
+        Console.Write("Enter the number to the console:");
+        int numInt = int.Parse(Console.ReadLine());
+
+        if (numInt % 2 == 0)
+        {
+            Console.WriteLine("\n");
+            Console.WriteLine("Number is even.");
+        }
+        else
+        {
+            Console.WriteLine("\n");
+            Console.WriteLine("Number is odd.");
+        }
+            Console.WriteLine("\n");
+    }
+}
+
