@@ -1,0 +1,23 @@
+using System;
+
+class Volleyball
+{
+    static void Main()
+    {
+        string year = Console.ReadLine();
+        int p = int.Parse(Console.ReadLine());
+        int h = int.Parse(Console.ReadLine());
+        double normalWeekends = (48-h)*3/4d;
+        double holidays = p * 2 / 3d;
+        if (year=="leap")
+        {
+            double leapYear = 0.15 * (holidays + normalWeekends + h);
+            Console.WriteLine("{0}",(int)(leapYear+holidays+normalWeekends+h));
+        }
+        else
+        {
+            Console.WriteLine("{0}", (int)(holidays + normalWeekends + h));
+        }
+    }
+}
+
