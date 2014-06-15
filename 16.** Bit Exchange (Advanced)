@@ -1,16 +1,14 @@
 using System;
 
-class Advanced
+class BitExchangeAdvanced
 {
     static void Main()
     {
-        long number = long.Parse(Console.ReadLine());
-        Console.WriteLine(Convert.ToString(number, 2).PadLeft(32, '0'));
-
+        Console.WriteLine("Enter n,p,q,k:");
+        long n = long.Parse(Console.ReadLine());
         int P = int.Parse(Console.ReadLine());
         int Q = int.Parse(Console.ReadLine());
         int K = int.Parse(Console.ReadLine());
-
         if (Math.Max(P, Q) + K > 32)
         {
             Console.WriteLine("Out of range");
@@ -23,43 +21,35 @@ class Advanced
         }
         else
         {
+            for (int L=P, M = Q; L <=P+K-1|| M <= Q+K-1; L++, M++)
+            {
+                long mask;
+                long bitL = (n >>L) & 1;
+                long bitM = (n >> M) & 1;
 
-        }
-        for (int I =P,J=Q; I <=P+K-1||J<=Q+K-1; I++,J++)
-        {
-            long mask = 1 << I;
-            long bitI = (number & (long)mask) >> I;
-
-            mask = 1 << J;
-            long bitJ = (number & (long)mask) >> J;
-
-            if (bitI == 0)
-            {
-                //put 0 in Jth position
-                mask = ~(1 << J);
-                number = number & (long)mask;
+                if (bitM == 0) //put bitP=0;
+                {
+                    mask = ~(1 <<L);
+                    n = n & mask;
+                }
+                else if (bitM == 1)//put bitP=1;
+                {
+                    mask = 1 <<L;
+                    n = n |mask;
+                }
+                if (bitL == 0)//put bitQ=0;
+                {
+                    mask = ~(1 << M);
+                    n = n & mask;
+                }
+                else if (bitL == 1)//put bitQ=1;
+                {
+                    mask = 1 << M;
+                    n = n | mask;
+                }
             }
-            else if (bitI == 1)
-            {
-                //put 1 in Jth position
-                mask = 1 << J;
-                number = number | (long)mask;
-            }
-            if (bitJ == 0)
-            {
-                //put 0 in Ith position
-                mask = ~(1 << I);
-                number = number & (long)mask;
-            }
-            else if (bitJ == 1)
-            {
-                //put 1 in Ith position
-                mask = 1 << I;
-                number = number | (long)mask;
-            }
-        }
-        Console.WriteLine(Convert.ToString(number, 2).PadLeft(32, '0'));
-        Console.WriteLine(number);
+       }
+      Console.WriteLine(n);
     }
 }
 
