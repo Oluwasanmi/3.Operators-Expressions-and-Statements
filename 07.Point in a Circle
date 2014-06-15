@@ -1,32 +1,22 @@
 using System;
 
-class Circle
+class PointInACircle
 {
     static void Main()
     {
-        Console.Write("Enter the number for the coordinate: x=");
-        float numFloatX = float.Parse(Console.ReadLine());
-        Console.WriteLine("\n");
-        Console.Write("Enter the number for the coordinate: y=");
-        float numFloatY=float.Parse(Console.ReadLine());
-        Console.WriteLine("\n");
-
-        Boolean boolEqual=((Math.Sqrt((numFloatX*numFloatX)
-            +(numFloatY*numFloatY)))<=2);
-
-        if (boolEqual)
+        Console.WriteLine("Enter x,y:");
+        double x = double.Parse(Console.ReadLine());
+        double y = double.Parse(Console.ReadLine());
+        int xK=0;
+        int yK = 0;
+        double radius = 2;
+        if (radius*radius >= Math.Pow((x - xK), 2) + Math.Pow((y - yK), 2))
         {
-            Console.Write("Point with coordinates" + " ");
-            Console.Write("({0},{1})" + " ", numFloatX, numFloatY);
-            Console.Write("is inside the circle K({0,0},2).");
-            Console.WriteLine("\n");
+            Console.WriteLine(true);
         }
         else
         {
-            Console.Write("Point with coordinates" + " ");
-            Console.Write("({0},{1})" + " ", numFloatX, numFloatY);
-            Console.Write("is outside the circle K({0,0},2).");
-            Console.WriteLine("\n");
+            Console.WriteLine(false);
         }
     }
 }
