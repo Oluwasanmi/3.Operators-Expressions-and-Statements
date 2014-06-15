@@ -1,18 +1,13 @@
 using System;
 
-class Weight
+class Gravitation
 {
     static void Main()
     {
-        Console.Write("Enter the weight of a" + " ");
-        Console.Write("person on the ground:");
-        double numWeightGround = double.Parse(Console.ReadLine());
-        Console.WriteLine("\n");
-        double numWeightMoon = 0.17*numWeightGround;
-
-        Console.Write("Weight of a" + " ");
-        Console.Write("person on the moon is:{0}", numWeightMoon);
-        Console.WriteLine("\n");
+        Console.WriteLine("Enter weight:");
+        double weightEarth = double.Parse(Console.ReadLine());
+        double weightMoon = (weightEarth * 17) / 100;
+        Console.WriteLine(weightMoon);
     }
 }
 
