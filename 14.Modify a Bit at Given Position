@@ -1,33 +1,26 @@
 using System;
 
-class ModifyABit
+class Program
 {
     static void Main()
     {
-        Console.Write("Enter the integer number:");
-        int nInt=int.Parse(Console.ReadLine());
-        Console.WriteLine("\n");
-        Console.Write("Enter the position to modify the bits:");
-        int pInt = int.Parse(Console.ReadLine());
-        Console.WriteLine("\n");
-        Console.Write("Enter the value 0 or 1 of bits with"+ " ");
-        Console.Write("which to modify:");
-        int vInt = int.Parse(Console.ReadLine());
-        Console.WriteLine("\n");
-        Boolean exchangeBit=(vInt==1);
-
-        if (exchangeBit)
+        Console.WriteLine("Enter number n,bit p and value v:");
+        int n = int.Parse(Console.ReadLine());
+        int p = int.Parse(Console.ReadLine());
+        int v = int.Parse(Console.ReadLine());
+        int nRightP = n >> p;     
+        int bit = nRightP & 1;     
+        if ((bit==1||bit==0)&&v==1)
         {
-            int maskInt = 1 << pInt;          
-            int result = nInt | maskInt;      
-            Console.WriteLine(result);  
-        }
-        else
-        {
-            int maskInt = ~(1 << pInt);
-            int result = nInt & maskInt;
+            int result = n |(1<<p);
             Console.WriteLine(result);
-            Console.WriteLine("\n");
         }
+        else if((bit==0||bit==1)&&v==0)
+        {
+            int result = n &( ~(1 << p));       
+            Console.WriteLine(result);
+        }
+
     }
 }
+
