@@ -1,39 +1,15 @@
 using System;
 
-class Bitwise
+class DisplayBitByGivenNumber
 {
     static void Main()
     {
-        Console.Write("Enter the integer number:");
-        int nInt = int.Parse(Console.ReadLine());
-        int result =nInt;
-        Console.WriteLine("\n");
-        Console.Write("The number {0}" + " ",nInt);
-        Console.Write("in binary sytem is:{0}",
-        Convert.ToString(result, 2).PadLeft(16, '0'));     
-        Console.WriteLine("\n");
-
-        short pInt = 3; //position pShort from a number nUshort.
-        int nRightP = nInt >> pInt;
-        result = nRightP;
-        Console.Write("The figure with bit {0}" + " ", pInt);
-        Console.Write(" moved from left to right" + " ");
-        Console.Write("in binary sytem is:");
-        Console.WriteLine("\n");
-        Console.WriteLine("{0}",
-        Convert.ToString(result, 2).PadLeft(16, '0'));
-        Console.WriteLine("\n");
-        int bit = nRightP & 1;
-        result = bit;
-        Console.WriteLine("\n");
-        Console.Write("Bit {0}" + " ",bit);
-        Console.Write("in binary sytem is:{0}",
-        Convert.ToString(result, 2).PadLeft(16, '0'));
-        Console.WriteLine("\n");
-        Console.Write("The bit in position {0}"+" ", pInt);
-        Console.Write("of the integer number {0} is:"+" ",nInt);
-        Console.Write("{0}",bit);
-        Console.WriteLine("\n");
+        Console.Write("Enter number n:");
+        uint p = 3;
+        uint n = uint.Parse(Console.ReadLine());               
+        uint nRightP =(n >>(int) p);      
+        uint bit = nRightP & 1;     
+        Console.WriteLine(bit);    
     }
-
 }
+
