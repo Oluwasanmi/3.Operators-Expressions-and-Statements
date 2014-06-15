@@ -1,72 +1,36 @@
 using System;
 
-class CircleOrRectangle
+class PointInsideACircleAndOutsideOfRectangle
 {
     static void Main()
     {
-        Console.Write("Enter the coordinate x:");
-        float numFloatX = float.Parse(Console.ReadLine());
-        Console.WriteLine("\n");
-        Console.Write("Enter the coordinate y:");
-        float numFloatY= float.Parse(Console.ReadLine());
-        Console.WriteLine("\n");
-
-        Boolean outCircleRectangle;
-        outCircleRectangle=(((numFloatX<-0.5)||(numFloatX>=2.5))&&((numFloatY>1)||(numFloatY<-1)));
-        if (outCircleRectangle)
-          {
-                Console.Write("point({0};{1})" + " ", numFloatX, numFloatY);
-                Console.Write("is out the circle K({1, 1}, 1.5)" + " ");
-                Console.Write("and out of the rectangle" + " ");
-                Console.Write("R(top=1,left=-1,width=6,height=2).");
-                Console.WriteLine("\n");
-          }
-         else
-          {
-                double radiusDoubleC = Math.Sqrt(((numFloatX-1)*(numFloatX-1)) + ((numFloatY-1)*(numFloatY-1)));
-                Boolean InsideCircle = (radiusDoubleC <= 1.5);
-
-                Console.WriteLine("{0}",radiusDoubleC);
-                if (InsideCircle)
-                {
-                    Boolean withinCircleRectangle;
-                    withinCircleRectangle = (((numFloatX >= -0.5) ||(numFloatX <= 2.5)) && ((numFloatY <= 1) || (numFloatY <= -0.5)));
-
-                    if (withinCircleRectangle)
-                    {
-                        Console.Write("Point({0};{1})" + " ", numFloatX, numFloatY);
-                        Console.Write("is within the circle K({1, 1}, 1.5)" + " ");
-                        Console.Write("and within of the rectangle" + " ");
-                        Console.Write("R(top=1, left=-1, width=6, height=2).");
-                        Console.WriteLine("\n");
-
-                    }
-                    Boolean withinCircleOutRectangle;
-                    withinCircleOutRectangle = (((numFloatX >= 0.5) && (numFloatX <= 2.5)) && ((numFloatY > 1) && (numFloatY <= 2.5)));
-
-                    if (withinCircleOutRectangle)
-                    {
-                        Console.Write("Point({0};{1})" + " ", numFloatX, numFloatY);
-                        Console.Write("is within the circle K({1, 1}, 1.5)" + " ");
-                        Console.Write("and out of the rectangle" + " ");
-                        Console.Write("R(top=1, left=-1, width=6, height=2).");
-                        Console.WriteLine("\n");
-                    }
-
-                }
-                else
-                {
-                    
-                    Console.Write("Point({0};{1})" + " ", numFloatX, numFloatY);
-                    Console.Write("is out the circle K({1, 1}, 1.5)" + " ");
-                    Console.Write("and within of the rectangle" + " ");
-                    Console.Write("R(top=1, left=-1, width=6, height=2).");
-                    Console.WriteLine("\n");
-                }
-
+        double x=double.Parse(Console.ReadLine());
+        double y = double.Parse(Console.ReadLine());
+        int xK = 1;
+        int yK = 1;
+        double radius = 1.5;
+        if ((y > 1&& y <= 2.5) && (x >= -0.5|| x <= 2.5))
+        {
+            if (radius * radius >= Math.Pow((x - xK), 2) + Math.Pow((y - yK), 2))
+            {
+                Console.WriteLine("yes");
             }
-        Console.WriteLine("\n");
+            else
+            {
+                Console.WriteLine("no");
+            }
+        }
+        else 
+        {
+            if (radius * radius >= Math.Pow((x - xK), 2) + Math.Pow((y - yK), 2))
+            {
+                Console.WriteLine("no");
+            }
+            else
+            {
+                Console.WriteLine("no");
+            }
+        }
     }
-
 }
 
