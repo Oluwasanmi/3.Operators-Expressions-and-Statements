@@ -4,44 +4,31 @@ class Prime
 {
     static void Main()
     {
-        Console.Write("Enter a positive integer numbers(from 1 to 100):");
-        int numInt=int.Parse(Console.ReadLine());
-        Console.WriteLine("\n");
-
-        if (numInt < 0)
+        Console.WriteLine("Enter number:");
+        int n = int.Parse(Console.ReadLine());
+        if (n < 2|| n > 100)
         {
-            Console.WriteLine("Invalid range!");
-            Console.WriteLine("\n");
+            Console.WriteLine(false);
             return;
         }
-        Boolean greaterNum=(numInt>1);
-
-        if (greaterNum)
+        int i = 1;
+        int count = 0;
+        while (n>=i)
         {
-                int intCountDivide = numInt-1;
-                Boolean checkNum = ((numInt % intCountDivide) != 0);
-
-              while (checkNum)
-              { //While loop checks whether the entered 
-               //number is divisible without remainder
-              //to other number except 1.
-                  intCountDivide=intCountDivide-1;
-                  checkNum=((numInt%intCountDivide)!=0);
-                  //It is imperative to check inside the 
-                  //cycle of not to hangup program.
-              }
-              Boolean onlyNumDivide = ((intCountDivide==1)&&(numInt%numInt==0));
-
-              if (onlyNumDivide)
-              {
-                 Console.WriteLine("The number {0} is prime:", numInt);
-                 Console.WriteLine("\n");
-              }
-              else
-             Console.WriteLine("The number {0} isn't prime:",numInt);
+            if (n%i==0)
+            {
+                count++;
+            }
+            i++;
+        }
+        if (count>2)
+        {
+            Console.WriteLine(false);
         }
         else
-            Console.WriteLine("The number {0} isn't prime:",numInt);
-            Console.WriteLine("\n");
+        {
+            Console.WriteLine(true);
+        }
     }
 }
+
