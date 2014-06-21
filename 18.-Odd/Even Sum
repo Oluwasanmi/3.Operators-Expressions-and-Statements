@@ -1,0 +1,32 @@
+using System;
+
+class OddOrEvenSumOrDifference
+{
+    static void Main()
+    {
+        int n = int.Parse(Console.ReadLine());
+        int sumOdd = 0;
+        int sumEven = 0;
+        int[] odd = new int[n];
+        int[] even = new int[n];
+        for (int i = 0; i < n; i++)
+        {
+            odd[i]=int.Parse(Console.ReadLine());
+            even[i] = int.Parse(Console.ReadLine());
+        }
+        for (int i = 0; i < n; i++)
+        {
+            sumOdd = sumOdd + odd[i];
+            sumEven=sumEven+even[i];
+        }
+        if (sumOdd==sumEven)
+        {
+            Console.WriteLine("{0}, sum={1}","Yes",sumOdd);
+        }
+        else
+        {
+            Console.WriteLine("{0}, diff={1}", "No", Math.Abs(sumOdd-sumEven));
+        }
+    }
+}
+
