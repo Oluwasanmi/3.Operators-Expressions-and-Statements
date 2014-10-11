@@ -4,19 +4,17 @@ class Volleyball
 {
     static void Main()
     {
-        string year = Console.ReadLine();
+        string kindYear = Console.ReadLine();
         int p = int.Parse(Console.ReadLine());
         int h = int.Parse(Console.ReadLine());
-        double normalWeekends = (48-h)*3/4d;
-        double holidays = p * 2 / 3d;
-        if (year=="leap")
+        double year = h + ((48 - h) * 3.0 / 4) + (p * 2.0 / 3);
+        if (kindYear=="leap")
         {
-            double leapYear = 0.15 * (holidays + normalWeekends + h);
-            Console.WriteLine("{0}",(int)(leapYear+holidays+normalWeekends+h));
+            Console.WriteLine("{0}",(int) (year + (0.15 * year)));
         }
         else
         {
-            Console.WriteLine("{0}", (int)(holidays + normalWeekends + h));
+            Console.WriteLine("{0}", (int)(year));
         }
     }
 }
