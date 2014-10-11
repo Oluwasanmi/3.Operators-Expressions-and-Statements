@@ -182,7 +182,6 @@ Input	Output		Input	Output
                       --*-*--
                       ---*---
 
-
 Problem 20.	** – Bits Up
 This problem is from Variant 2 of C# Basics exam from 10-04-2014 Evening.  You can test your solution here .
 You are given a sequence of bytes. Consider each byte as sequences of exactly 8 bits.  You are given also a number step. Write a program to set to 1 the bits at positions: 1, 1 + step, 1 + 2*step, ... Print the output as a sequence of bytes.
