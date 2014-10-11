@@ -4,52 +4,66 @@ class BitExchangeAdvanced
 {
     static void Main()
     {
-        Console.WriteLine("Enter n,p,q,k:");
-        long n = long.Parse(Console.ReadLine());
-        int P = int.Parse(Console.ReadLine());
-        int Q = int.Parse(Console.ReadLine());
-        int K = int.Parse(Console.ReadLine());
-        if (Math.Max(P, Q) + K > 32)
+        Console.WriteLine("Enter unsigned integer number:");
+        uint n = uint.Parse(Console.ReadLine());
+        Console.WriteLine("Enter unsigned integer for position:");
+        uint p = uint.Parse(Console.ReadLine());
+        Console.WriteLine("Enter integer for position:");
+        uint q = uint.Parse(Console.ReadLine());
+        Console.WriteLine("Enter integer for coefficient:");
+        int k = int.Parse(Console.ReadLine());
+        uint result = 0;
+        int m = 0;      
+        int[] bitP = new int[p + k + 1];
+        int[] bitQ = new int[q + k + 1];
+        if (Math.Max(p, q) + k > 32)
         {
             Console.WriteLine("Out of range");
             return;
         }
-        else if (Math.Min(P, Q) + K > Math.Max(P, Q))
+        else if (Math.Min(p, q) + k > Math.Max(p, q))
         {
             Console.WriteLine("Overlapping");
             return;
         }
-        else
+        for (uint i = p, j=q; i<=p+k-1||j<=q+k-1; i++, j++)
         {
-            for (int L=P, M = Q; L <=P+K-1|| M <= Q+K-1; L++, M++)
+            uint nRightP = n >> (int)i;
+            bitP[i] = (int)nRightP & 1;
+            nRightP = n >>(int)j;
+            bitQ[j] =(int)nRightP & 1;
+            if (bitP[i] == 0 && bitQ[j] == 1)
             {
-                long mask;
-                long bitL = (n >>L) & 1;
-                long bitM = (n >> M) & 1;
-
-                if (bitM == 0) //put bitP=0;
+                int mask = ~(1 << (int)j);
+                if (i == p || m==0)
                 {
-                    mask = ~(1 <<L);
-                    n = n & mask;
+                    result = n & (uint)mask;
+                    m++; //variable determining the performance of a single line
                 }
-                else if (bitM == 1)//put bitP=1;
+                else
                 {
-                    mask = 1 <<L;
-                    n = n |mask;
+                    result = result & (uint)mask;
                 }
-                if (bitL == 0)//put bitQ=0;
-                {
-                    mask = ~(1 << M);
-                    n = n & mask;
-                }
-                else if (bitL == 1)//put bitQ=1;
-                {
-                    mask = 1 << M;
-                    n = n | mask;
-                }
+                mask = 1 << (int)i;            
+                result = result | (uint)mask;
             }
-       }
-      Console.WriteLine(n);
+            else if (bitP[i] == 1 && bitQ[j] == 0)
+            {
+                int mask = 1 << (int)j;
+                if (i == p ||m==0)
+                {
+                    result = n | (uint)mask;
+                    m++;
+                }
+                else
+                {
+                    result = result | (uint)mask;
+                }
+                mask = ~(1 << (int)i);         
+                result = result & (uint)mask;
+            }
+        }
+        Console.WriteLine(result);
     }
 }
 
