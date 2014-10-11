@@ -5,49 +5,42 @@ class TheExplorer
     static void Main()
     {
         int n = int.Parse(Console.ReadLine());
-        int asteriskNum = 1;
-        string asterisk = new string('*', asteriskNum);
-        string dash = new string('-', (n - asteriskNum) / 2);
-            Console.Write(dash);
-            Console.Write(asterisk);
-            Console.Write(dash);
+        lineUp(n);
+        string line =" ";
+        int l = 1;
+        int i = 1;
+        for (; i <=(n-1)/2; i++,l=l+2)
+        {
+           line=new string('-',n/2-i);
+           Console.Write(line);
+           Console.Write('*');
+           string lineAverage = new string('-',l);
+           Console.Write(lineAverage);
+           Console.Write('*');
+           Console.Write(line);
+           Console.WriteLine();
+        }
+        l = l - 4;
+        for (int j = 1; j <= (n-(i-1)-2); j++, l = l - 2)
+        {
+            line = new string('-', j);
+            Console.Write(line);
+            Console.Write('*');
+            string lineAverage = new string('-', l);
+            Console.Write(lineAverage);
+            Console.Write('*');
+            Console.Write(line);
             Console.WriteLine();
-            int dashMiddleNum = 1;
-            asteriskNum++;
-            for (int i = 0; i < n/2-1; i++)
-            {  
-                string dashMiddle=new string('-',dashMiddleNum);
-                dash = new string('-', (n - asteriskNum-dashMiddleNum) / 2);
-                Console.Write(dash);
-                Console.Write(asterisk);
-                Console.Write(dashMiddle);
-                Console.Write(asterisk);
-                Console.Write(dash);
-                dashMiddleNum = dashMiddleNum + 2;
-                Console.WriteLine();  
-            }
-            string dashCenter = new string('-', n - asteriskNum);
-            Console.Write(asterisk);
-            Console.Write(dashCenter);
-            Console.WriteLine(asterisk);
-            for (int i = 0; i < n / 2 - 1; i++)
-            {
-                dashMiddleNum = dashMiddleNum - 2;
-                string dashMiddle = new string('-', dashMiddleNum);
-                dash = new string('-', (n - asteriskNum - dashMiddleNum) / 2);
-                Console.Write(dash);
-                Console.Write(asterisk);
-                Console.Write(dashMiddle);
-                Console.Write(asterisk);
-                Console.Write(dash);
-                Console.WriteLine();
-            }
-            asteriskNum--;
-            dash = new string('-', (n - asteriskNum) / 2);
-            Console.Write(dash);
-            Console.Write(asterisk);
-            Console.Write(dash);
-            Console.WriteLine();
+        }
+        lineUp(n);
+    }
+    private static void lineUp(int n)
+    {
+        string lineUp = new string('-', n / 2);
+        Console.Write(lineUp);
+        Console.Write('*');
+        Console.Write(lineUp);
+        Console.WriteLine();
     }
 }
 
