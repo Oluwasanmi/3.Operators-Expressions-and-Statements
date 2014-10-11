@@ -4,25 +4,14 @@ class ThirdDigitIs7
 {
     static void Main()
     {
-        Console.WriteLine("Enter the three digit number:");
-        int n = int.Parse(Console.ReadLine());
-        if (n<700)
-        {
-            Console.WriteLine(false);
-        }
-        else
-        {
-            int hundred = n / 10;
-            int tenths = hundred / 10;
-            if (tenths % 10 == 7)
-            {
-                Console.WriteLine(true);
-            }
-            else
-            {
-                Console.WriteLine(false);
-            }
-        }
+        Console.WriteLine("Enter integer number:");
+        int number = int.Parse(Console.ReadLine());
+        int firstDigit = number % 10;
+        int secondDigit = (number / 10) % 10;
+        int thirdDigit = (number / 10 / 10) % 10;
+        bool check = thirdDigit == 7;
+        Console.WriteLine("{0}",check);
     }
 }
+
 
