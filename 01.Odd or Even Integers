@@ -1,20 +1,16 @@
 using System;
 
-class OddOrEvenNumbers
+class OddOrEvenIntegers
 {
     static void Main()
     {
-        Console.WriteLine("Enter number:");
-        int intNum = int.Parse(Console.ReadLine());
-        if (intNum%2==0)
-        {
-            Console.WriteLine(false);
-        }
-        else
-        {
-            Console.WriteLine(true);
-        }
-
+        Console.WriteLine("Enter integer number:");
+        int number = int.Parse(Console.ReadLine());
+        bool check=number%2!=0;
+        Console.WriteLine("Does the number is odd?");
+        Console.WriteLine(check);
     }
 }
+
+
 
